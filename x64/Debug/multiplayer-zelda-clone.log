@@ -1,6 +1,37 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(500,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
   Game.cpp
-  MenuScreen.cpp
-  ScreenManager.cpp
+  ScreenStack.cpp
+  TitleScreen.cpp
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(10,14): error C2653: 'Screen': is not a class or namespace name
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(10,22): error C2065: 'Pointer': undeclared identifier
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(10,7): error C2923: 'std::vector': 'Pointer' is not a valid template type argument for parameter '_Ty'
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(10): message : see declaration of 'Pointer'
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(10,7): error C2976: 'std::vector': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector(480): message : see declaration of 'std::vector'
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(10,31): error C2955: 'std::vector': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector(480): message : see declaration of 'std::vector'
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(11,21): error C2653: 'Screen': is not a class or namespace name
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(11,29): error C2065: 'Type': undeclared identifier
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(11,49): error C2653: 'Screen': is not a class or namespace name
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(11,57): error C3861: 'Pointer': identifier not found
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(11,40): error C2923: 'std::function': 'Pointer' is not a valid template type argument for parameter '_Fty'
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(11): message : see declaration of 'Pointer'
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(11,7): error C2923: 'std::unordered_map': 'Type' is not a valid template type argument for parameter '_Kty'
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(11): message : see declaration of 'Type'
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(11,40): error C3203: 'function': unspecialized class template can't be used as a template argument for template parameter '_Ty', expected a real type
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(11,7): error C2976: 'std::unordered_map': too few template arguments
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\unordered_map(67): message : see declaration of 'std::unordered_map'
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(11,69): error C2955: 'std::unordered_map': use of class template requires template argument list
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\unordered_map(67): message : see declaration of 'std::unordered_map'
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(17,2): error C2653: 'Screen': is not a class or namespace name
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(17,18): error C3646: 'createScreen': unknown override specifier
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(17,30): error C2059: syntax error: '('
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(17,31): error C2653: 'Screen': is not a class or namespace name
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(17,49): error C2238: unexpected token(s) preceding ';'
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(24,22): error C2653: 'Screen': is not a class or namespace name
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(24,30): error C2061: syntax error: identifier 'Type'
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(29,18): error C2653: 'Screen': is not a class or namespace name
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(29,26): error C2061: syntax error: identifier 'Type'
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(39,22): error C2653: 'Screen': is not a class or namespace name
+D:\Workspace\C++\multiplayer-zelda-clone\ScreenStack.hpp(39,30): error C2061: syntax error: identifier 'Type'
   Generating Code...
-  multiplayer-zelda-clone.vcxproj -> D:\Workspace\C++\multiplayer-zelda-clone\build\multiplayer-zelda-clone.exe

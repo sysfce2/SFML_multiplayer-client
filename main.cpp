@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "Game.hpp"
-#include "TimeUtils.hpp"
+#include "Time.hpp"
 
 int main()
 {
@@ -14,7 +14,7 @@ int main()
     while (window.isOpen())
     {   
         // set current dt to 0 because a new frame has started
-        TimeUtils::ResetDelta();
+        Time::ResetDelta();
 
         // poll sfml events
         sf::Event event;
@@ -25,7 +25,7 @@ int main()
         }
 
         // get elapsed time since the start of this frame
-        float dt = TimeUtils::GetDelta();
+        float dt = Time::GetDelta();
         // event: update
         Game::Update(dt);
 

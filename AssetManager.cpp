@@ -12,7 +12,7 @@ std::unordered_map<std::string, sf::Texture> textures;
 	load texture from a file
 	it will be stored in an unordered map with the <name> parameter as key
 */
-void AssetManager::LoadTextureFromFile(std::string name, std::string filename) {
+void LoadTextureFromFile(std::string name, std::string filename) {
 	if(!textures[name].loadFromFile(RESOURCES_PATH + filename))
 		std::cout << "Could not load texture: " << filename << std::endl;
 }
@@ -21,6 +21,6 @@ void AssetManager::LoadTextureFromFile(std::string name, std::string filename) {
 	get the texture from storage
 	the texture MUST be loaded before using this function
 */
-sf::Texture AssetManager::GetTexture(std::string name) {
+sf::Texture GetTexture(std::string name) {
 	return textures[name];
 }

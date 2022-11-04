@@ -1,16 +1,16 @@
 #pragma once
 #include <SFML/Graphics/Texture.hpp>
 
-struct position {
+struct CPosition {
 	float x;
 	float y;
 };
 
-struct velocity {
+struct CVelocity {
 	float dx;
 	float dy;
 };
 
-struct graphics {
+struct CGraphics {
 	sf::Texture texture;
 };

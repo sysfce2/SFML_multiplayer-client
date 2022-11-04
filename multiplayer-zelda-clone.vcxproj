@@ -143,18 +143,18 @@
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MenuScreen.cpp" />
-    <ClCompile Include="ScreenManager.cpp" />
-    <ClCompile Include="TimeUtils.cpp" />
+    <ClCompile Include="ScreenStack.cpp" />
+    <ClCompile Include="Time.cpp" />
+    <ClCompile Include="TitleScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.hpp" />
     <ClInclude Include="Components.hpp" />
     <ClInclude Include="Game.hpp" />
-    <ClInclude Include="MenuScreen.hpp" />
     <ClInclude Include="Screen.hpp" />
-    <ClInclude Include="ScreenManager.hpp" />
-    <ClInclude Include="TimeUtils.hpp" />
+    <ClInclude Include="ScreenStack.hpp" />
+    <ClInclude Include="Time.hpp" />
+    <ClInclude Include="TitleScreen.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
