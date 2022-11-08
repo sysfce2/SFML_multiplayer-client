@@ -4,6 +4,6 @@
 namespace Game {
 	void Start();
 	void Update(float dt);
-	void Draw(sf::RenderWindow* window);
+	void Draw(sf::RenderWindow& window);
 	void Stop();
 }

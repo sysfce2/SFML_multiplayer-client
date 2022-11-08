@@ -2,17 +2,6 @@
 #include <algorithm>
 
 /*
-	links a Screen::Type to a Screen class
-	T = the class we want to link to that type
-*/
-template<class T>
-void ScreenStack::registerScreen(Screen::Type type) {
-	screenFactories[type] = [this]() {
-		return std::make_unique<T>(*this);
-	};
-}
-
-/*
 	creates a new screen
 	returns a shared pointer to that screen
 */
@@ -53,7 +42,17 @@ void ScreenStack::update(float dt) {
 /*
 	draw all active screens
 */
-void ScreenStack::draw(sf::RenderWindow* window) {
+void ScreenStack::draw(sf::RenderWindow& window) {
 	for(Screen::Pointer s : activeScreens)
 		(*s).draw(window);
+}
+
+/*
+	close all screens
+*/
+void ScreenStack::close() {
+	for(Screen::Pointer s : activeScreens)
+		(*s).close();
+
+	activeScreens.clear();
 }

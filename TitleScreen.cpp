@@ -1,15 +1,11 @@
 #include "TitleScreen.hpp"
 #include <iostream>
 
-void TitleScreen::open() {
-	std::cout << "Hello, open" << std::endl;
-}
-
 void TitleScreen::update(float dt) {
 	std::cout << "Hello, update" << std::endl;
 }
 
-void TitleScreen::draw(sf::RenderWindow* window) {
+void TitleScreen::draw(sf::RenderWindow& window) {
 	std::cout << "Hello, draw" << std::endl;
 }
 

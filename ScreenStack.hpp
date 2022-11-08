@@ -1,4 +1,5 @@
 #pragma once
+#include <map>
 #include <memory>
 #include <vector>
 #include <functional>
@@ -21,7 +22,11 @@ public:
 		T = the class we want to link to that type
 	*/
 	template<class T>
-	void registerScreen(Screen::Type type);
+	void registerScreen(Screen::Type type) {
+		// if the compiler complains about not being able to treat a child's pointer as the parent's
+		// remember to specify a !public! inheritance of Screen in the child class
+		screenFactories[type] = [this]() -> Screen::Pointer { return std::make_shared<T>(*this); };
+	}
 
 	/*
 		starts a new screen
@@ -46,5 +51,10 @@ public:
 	/*
 		draw all active screens
 	*/
-	void draw(sf::RenderWindow* window);
+	void draw(sf::RenderWindow& window);
+
+	/*
+		close all screens
+	*/
+	void close();
 };

@@ -31,7 +31,7 @@ int main()
 
         // event: draw
         window.clear();
-        Game::Draw(&window);
+        Game::Draw(window);
         window.display();
     }
 
