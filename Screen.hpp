@@ -8,7 +8,7 @@ class ScreenStack;
 class Screen {
 public:
 	typedef std::shared_ptr<Screen> Pointer;
-	enum Type { MENU, PLAY };
+	enum Type { NONE, MENU, PLAY };
 protected:
 	ScreenStack& screenStack;
 public:

@@ -50,10 +50,10 @@
     <ClInclude Include="Screen.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ScreenStack.hpp">
+    <ClInclude Include="TitleScreen.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TitleScreen.hpp">
+    <ClInclude Include="ScreenStack.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

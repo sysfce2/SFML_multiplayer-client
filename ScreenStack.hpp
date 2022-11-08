@@ -8,7 +8,47 @@
 
 class ScreenStack {
 private:
+	/*
+		defines action in a pending stack change
+	*/
+	enum MemoryAction { PUSH, POP };
+
+	/*
+		defines a pending change
+		this is used to push or pop screens in the stack
+		pushing and popping only happens after the update loop ends because we want to
+		ensure that we only write to activeScreens when nobody is reading (thread-safing)
+	*/
+	struct PendingChange {
+		PendingChange(MemoryAction action, Screen::Type screenType = Screen::Type::NONE);
+		
+		/*
+			the screen type used together with PUSH operation
+		*/
+		Screen::Type screenType;
+
+		/*
+			the action type to insert in the pending changes
+		*/
+		MemoryAction action;
+	};
+private:
+	/*
+		pending-write changes for the screen stack
+	*/
+	std::vector<PendingChange> pendingChanges;
+
+	/*
+		a "stack" of screens
+		each screen in the stack will be opened, updated, drawn and closed when needed
+	*/
 	std::vector<Screen::Pointer> activeScreens;
+
+	/*
+		factory pattern
+		each screen type has a lambda linked to it
+		the lambda creates and returns a shared_ptr to a new screen of said type
+	*/
 	std::unordered_map<Screen::Type, std::function<Screen::Pointer()>> screenFactories;
 private:
 	/*
