@@ -40,7 +40,7 @@ private:
 
 	/*
 		a "stack" of screens
-		each screen in the stack will be opened, updated, drawn and closed when needed
+		each screen in the stack will be updated, drawn and closed when needed
 	*/
 	std::vector<Screen::Pointer> activeScreens;
 
@@ -65,7 +65,7 @@ public:
 	void registerScreen(Screen::Type type) {
 		// if the compiler complains about not being able to treat a child's pointer as the parent's
 		// remember to specify a !public! inheritance of Screen in the child class
-		screenFactories[type] = [this]() -> Screen::Pointer { return std::make_shared<T>(*this); };
+		screenFactories[type] = [this]() -> Screen::Pointer { return std::make_unique<T>(*this); };
 	}
 
 	/*

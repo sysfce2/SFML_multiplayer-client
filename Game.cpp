@@ -1,14 +1,14 @@
-#include <SFML/Graphics.hpp>
 #include "Game.hpp"
-#include "AssetManager.hpp"
+#include <SFML/Graphics.hpp>
 #include "ScreenStack.hpp"
+#include "ResourceHolder.hpp"
 #include "TitleScreen.hpp"
 
 ScreenStack screens;
 
 void Game::Start() {
-	screens.registerScreen<TitleScreen>(Screen::Type::MENU);
-	screens.pushScreen(Screen::Type::MENU);
+	screens.registerScreen<TitleScreen>(Screen::Type::TITLE);
+	screens.pushScreen(Screen::Type::TITLE);
 }
 
 void Game::Update(float dt) {

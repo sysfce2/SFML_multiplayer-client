@@ -140,7 +140,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ScreenStack.cpp" />
@@ -148,11 +147,11 @@
     <ClCompile Include="TitleScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AssetManager.hpp" />
     <ClInclude Include="Components.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="Screen.hpp" />
     <ClInclude Include="ScreenStack.hpp" />
+    <ClInclude Include="ResourceHolder.hpp" />
     <ClInclude Include="Time.hpp" />
     <ClInclude Include="TitleScreen.hpp" />
   </ItemGroup>

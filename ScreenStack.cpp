@@ -1,6 +1,4 @@
 #include "ScreenStack.hpp"
-#include <algorithm>
-#include <iostream>
 
 /*
 	defines a pending change
@@ -51,8 +49,8 @@ void ScreenStack::switchToScreen(Screen::Type type) {
 */
 void ScreenStack::update(float dt) {
 	// update screens
-	for(Screen::Pointer s : activeScreens)
-		(*s).update(dt);
+	for(Screen::Pointer& s : activeScreens)
+		s->update(dt);
 
 	// apply pending changes
 	for(PendingChange change : pendingChanges)
@@ -75,16 +73,16 @@ void ScreenStack::update(float dt) {
 	draw all active screens
 */
 void ScreenStack::draw(sf::RenderWindow& window) {
-	for(Screen::Pointer s : activeScreens)
-		(*s).draw(window);
+	for(Screen::Pointer& s : activeScreens)
+		s->draw(window);
 }
 
 /*
 	close all screens
 */
 void ScreenStack::close() {
-	for(Screen::Pointer s : activeScreens)
-		(*s).close();
+	for(Screen::Pointer& s : activeScreens)
+		s->close();
 
 	activeScreens.clear();
 }
