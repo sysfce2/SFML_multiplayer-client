@@ -1,13 +1,5 @@
 #include "ScreenStack.hpp"
-
-/*
-	defines a pending change
-	this is used to push or pop screens in the stack
-	pushing and popping only happens after the update loop ends because we want to
-	ensure that we only write to activeScreens when nobody is reading (thread-safing)
-*/
-ScreenStack::PendingChange::PendingChange(MemoryAction action, Screen::Type screenType)
-	: action(action), screenType(screenType) {};
+#include <iostream>
 
 /*
 	creates a new screen

@@ -20,7 +20,8 @@ private:
 		ensure that we only write to activeScreens when nobody is reading (thread-safing)
 	*/
 	struct PendingChange {
-		PendingChange(MemoryAction action, Screen::Type screenType = Screen::Type::NONE);
+		PendingChange(MemoryAction action, Screen::Type screenType = Screen::Type::NONE)
+			: action(action), screenType(screenType) {};
 		
 		/*
 			the screen type used together with PUSH operation
@@ -33,6 +34,11 @@ private:
 		MemoryAction action;
 	};
 private:
+	/*
+		create a context used by all screens managed by this screenstack
+	*/
+	Screen::Context& screenContext;
+
 	/*
 		pending-write changes for the screen stack
 	*/
@@ -58,6 +64,11 @@ private:
 	Screen::Pointer createScreen(Screen::Type type);
 public:
 	/*
+		constructor
+	*/
+	explicit ScreenStack(Screen::Context& context) : screenContext(context) {};
+
+	/*
 		links a Screen::Type to a Screen class
 		T = the class we want to link to that type
 	*/
@@ -65,7 +76,7 @@ public:
 	void registerScreen(Screen::Type type) {
 		// if the compiler complains about not being able to treat a child's pointer as the parent's
 		// remember to specify a !public! inheritance of Screen in the child class
-		screenFactories[type] = [this]() -> Screen::Pointer { return std::make_unique<T>(*this); };
+		screenFactories[type] = [this]() -> Screen::Pointer { return std::make_unique<T>(*this, screenContext); };
 	}
 
 	/*

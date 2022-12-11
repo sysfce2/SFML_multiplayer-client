@@ -24,7 +24,7 @@ private:
 	*/
 	void insert(Identifier id, std::unique_ptr<Resource> resource) {
 		bool isIdentifierUnique = (resources.count(id) == 0 ? true : false);
-		assert(isIdentifierUnique, true);
+		assert(isIdentifierUnique == true);
 
 		resources.emplace(id, std::move(resource));
 	}

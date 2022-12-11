@@ -3,10 +3,13 @@
 #include "ScreenStack.hpp"
 #include "ResourceHolder.hpp"
 #include "TitleScreen.hpp"
+#include "PlayScreen.hpp"
 
-ScreenStack screens;
+Screen::Context context;
+ScreenStack screens(context);
 
 void Game::Start() {
+	screens.registerScreen<PlayScreen>(Screen::Type::PLAY);
 	screens.registerScreen<TitleScreen>(Screen::Type::TITLE);
 	screens.pushScreen(Screen::Type::TITLE);
 }

@@ -30,6 +30,9 @@
     <ClCompile Include="TitleScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PlayScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.hpp">
@@ -51,6 +54,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ResourceHolder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayScreen.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

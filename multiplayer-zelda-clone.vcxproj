@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PlayScreen.cpp" />
     <ClCompile Include="ScreenStack.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="TitleScreen.cpp" />
@@ -149,6 +150,8 @@
   <ItemGroup>
     <ClInclude Include="Components.hpp" />
     <ClInclude Include="Game.hpp" />
+    <ClInclude Include="PlayScreen.hpp" />
+    <ClInclude Include="Resources.hpp" />
     <ClInclude Include="Screen.hpp" />
     <ClInclude Include="ScreenStack.hpp" />
     <ClInclude Include="ResourceHolder.hpp" />

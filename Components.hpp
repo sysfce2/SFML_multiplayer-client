@@ -1,5 +1,5 @@
 #pragma once
-#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Sprite.hpp>
 
 struct CPosition {
 	float x;
@@ -9,8 +9,16 @@ struct CPosition {
 struct CVelocity {
 	float dx;
 	float dy;
+	bool frictionless = false;
 };
 
-struct CGraphics {
-	sf::Texture texture;
+struct CDraw {
+	sf::Sprite sprite;
+};
+
+struct CController {
+	bool up;
+	bool left;
+	bool down;
+	bool right;
 };
