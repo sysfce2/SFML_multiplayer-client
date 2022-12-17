@@ -7,12 +7,14 @@ struct CPosition {
 };
 
 struct CVelocity {
-	float dx;
-	float dy;
-	bool frictionless = false;
+	float speed = 400;
+	float verticalAxis;			// between -1 and 1
+	float horizontalAxis;		// between -1 and 1
 };
 
 struct CDraw {
+	CDraw(sf::Texture& texture) { sprite.setTexture(texture); }
+
 	sf::Sprite sprite;
 };
 

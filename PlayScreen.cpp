@@ -1,27 +1,33 @@
 #include "PlayScreen.hpp"
 #include <iostream>
+#include "Time.hpp"
 #include "Resources.hpp"
 #include "Components.hpp"
 #include "ResourceHolder.hpp"
-
-sf::Sprite player;
 
 PlayScreen::PlayScreen(ScreenStack& screenStack, Screen::Context& context)
 	: Screen(screenStack, context) {
 
 	auto& textures = getContext().textures;
+	auto& entities = getContext().entities;
 
 	textures.load(Textures::Player, "player.png");
-	player.setTexture(textures.get(Textures::Player));
+
+	const auto entity = entities.create();
+
+	entities.emplace<CPosition>(entity);
+	entities.emplace<CVelocity>(entity);
+	entities.emplace<CController>(entity);
+	entities.emplace<CDraw>(entity, textures.get(Textures::Player));
 }
 
 void PlayScreen::update(float dt) {
 	auto& entities = getContext().entities;
 
 	//
-	auto controllables = entities.view<CController>();
+	auto controllers = entities.view<CController>();
 	
-	controllables.each([](auto& controller) {
+	controllers.each([](auto& controller) {
 		controller.up		= sf::Keyboard::isKeyPressed(sf::Keyboard::W);
 		controller.left		= sf::Keyboard::isKeyPressed(sf::Keyboard::A);
 		controller.down		= sf::Keyboard::isKeyPressed(sf::Keyboard::S);
@@ -30,28 +36,28 @@ void PlayScreen::update(float dt) {
 	//
 
 	//
-	
-	//
-
-	//
 	auto movables = entities.view<CPosition, CVelocity>();
 
 	movables.each([&entities](const auto entity, auto& position, auto& velocity) {
-		position.x += velocity.dx;
-		position.y += velocity.dy;
+		velocity.verticalAxis = 0;
+		velocity.horizontalAxis = 0;
 
 		if(entities.any_of<CController>(entity)) {
 			auto& controller = entities.get<CController>(entity);
-			if(controller.up)		velocity.dy -= 1;
-			if(controller.left)		velocity.dx -= 1;
-			if(controller.down)		velocity.dy += 1;
-			if(controller.right)	velocity.dx += 1;
+
+			if(controller.up)		velocity.verticalAxis	= -1;
+			if(controller.left)		velocity.horizontalAxis = -1;
+			if(controller.down)		velocity.verticalAxis	= +1;
+			if(controller.right)	velocity.horizontalAxis = +1;
+
+			if(velocity.horizontalAxis != 0 && velocity.verticalAxis != 0) {
+				velocity.verticalAxis	/= std::sqrt(2.f);
+				velocity.horizontalAxis /= std::sqrt(2.f);
+			}
 		}
 
-		if(!velocity.frictionless) {
-			velocity.dx += (velocity.dx > 0 ? -0.5 : 0.5);
-			velocity.dy += (velocity.dy > 0 ? -0.5 : 0.5);
-		}
+		position.y += velocity.speed * velocity.verticalAxis   * Time::GetDelta();
+		position.x += velocity.speed * velocity.horizontalAxis * Time::GetDelta();
 	});
 	//
 }
@@ -59,8 +65,18 @@ void PlayScreen::update(float dt) {
 void PlayScreen::draw(sf::RenderWindow& window) {
 	auto& entities = getContext().entities;
 
-	auto drawables = entities.view<const CDraw>();
-	drawables.each([&window](const auto& draw) {
+	auto drawables = entities.view<CDraw>();
+
+	drawables.each([&entities, &window](const auto entity, auto& draw) {
+
+		if(entities.any_of<CPosition>(entity)) {
+			auto& position = entities.get<CPosition>(entity);
+			auto& sprite = draw.sprite;
+
+			sprite.setPosition({position.x, position.y});
+		}
+
+
 		window.draw(draw.sprite);
 	});
 }
