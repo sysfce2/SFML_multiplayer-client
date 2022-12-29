@@ -2,8 +2,7 @@
 #include "Game.hpp"
 #include "Time.hpp"
 
-int main()
-{
+int main() {
     // create window
     sf::RenderWindow window(sf::VideoMode(1366, 768), "Multiplayer Zelda");
 
