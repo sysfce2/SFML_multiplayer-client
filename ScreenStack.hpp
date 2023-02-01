@@ -35,7 +35,7 @@ private:
 	};
 private:
 	/*
-		create a context used by all screens managed by this screenstack
+		hold a reference to a context used by all screens managed by this screenstack
 	*/
 	Screen::Context& screenContext;
 
