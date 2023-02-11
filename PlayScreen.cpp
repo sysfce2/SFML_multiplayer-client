@@ -1,6 +1,5 @@
 #include "PlayScreen.hpp"
 #include <iostream>
-#include "Time.hpp"
 #include "Resources.hpp"
 #include "Components.hpp"
 #include "ResourceHolder.hpp"
@@ -38,7 +37,7 @@ void PlayScreen::update(float dt) {
 	//
 	auto movables = entities.view<CPosition, CVelocity>();
 
-	movables.each([&entities](const auto entity, auto& position, auto& velocity) {
+	movables.each([&entities, &dt](const auto entity, auto& position, auto& velocity) {
 		velocity.verticalAxis = 0;
 		velocity.horizontalAxis = 0;
 
@@ -56,8 +55,8 @@ void PlayScreen::update(float dt) {
 			}
 		}
 
-		position.y += velocity.speed * velocity.verticalAxis   * Time::GetDelta();
-		position.x += velocity.speed * velocity.horizontalAxis * Time::GetDelta();
+		position.y += velocity.speed * velocity.verticalAxis   * dt;
+		position.x += velocity.speed * velocity.horizontalAxis * dt;
 	});
 	//
 }
