@@ -16,18 +16,6 @@ private:
 		ex. Texture::PLAYER -> player.png
 	*/
 	std::unordered_map<Identifier, std::unique_ptr<Resource>> resources;
-private:
-	/*
-		link unique identifier to a resource
-		isKeyUnique is used to determine whether an identifier has already been inserted in the map
-		(an unordered_map only stores unique keys)
-	*/
-	void insert(Identifier id, std::unique_ptr<Resource> resource) {
-		bool isIdentifierUnique = (resources.count(id) == 0 ? true : false);
-		assert(isIdentifierUnique == true);
-
-		resources.emplace(id, std::move(resource));
-	}
 public:
 	/*
 		loads a specific resource and assigns an identifier to it
@@ -46,5 +34,17 @@ public:
 	*/
 	Resource& get(Identifier id) {
 		return *resources.at(id);
+	}
+private:
+	/*
+		link unique identifier to a resource
+		isKeyUnique is used to determine whether an identifier has already been inserted in the map
+		(an unordered_map only stores unique keys)
+	*/
+	void insert(Identifier id, std::unique_ptr<Resource> resource) {
+		bool isIdentifierUnique = (resources.count(id) == 0 ? true : false);
+		assert(isIdentifierUnique == true);
+
+		resources.emplace(id, std::move(resource));
 	}
 };

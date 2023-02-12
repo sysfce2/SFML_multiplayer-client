@@ -1,4 +1,5 @@
 #pragma once
+#include <list>
 #include <entt.hpp>
 #include <SFML/Graphics.hpp>
 #include "Resources.hpp"

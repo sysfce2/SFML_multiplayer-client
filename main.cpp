@@ -11,8 +11,11 @@ int main() {
     // init imgui-SFML
     ImGui::SFML::Init(window);
 
+    // init game
+    Game game;
+
     // start the game
-    Game::Start();
+    game.start();
     
     // start clock
     sf::Clock deltaClock;
@@ -36,11 +39,11 @@ int main() {
 
         // update section
         ImGui::SFML::Update(window, elapsed);
-        Game::Update(elapsed.asSeconds());
+        game.update(elapsed.asSeconds());
 
         // draw section
         window.clear();
-        Game::Draw(window);
+        game.draw(window);
         ImGui::SFML::Render(window);
         window.display();
     }

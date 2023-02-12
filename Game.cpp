@@ -1,26 +1,25 @@
 #include "Game.hpp"
-#include <SFML/Graphics.hpp>
-#include "ScreenStack.hpp"
-#include "TitleScreen.hpp"
 #include "PlayScreen.hpp"
+#include "TitleScreen.hpp"
 
-Screen::Context context;
-ScreenStack screens(context);
+#include <iostream>
 
-void Game::Start() {
+void Game::start() {
 	screens.registerScreen<PlayScreen>(Screen::Type::PLAY);
 	screens.registerScreen<TitleScreen>(Screen::Type::TITLE);
 	screens.pushScreen(Screen::Type::TITLE);
 }
 
-void Game::Update(float dt) {
+void Game::update(float dt) {
 	screens.update(dt);
 }
 
-void Game::Draw(sf::RenderWindow& window) {
+void Game::draw(sf::RenderWindow& window) {
 	screens.draw(window);
+
+	gui.draw();
 }
 
-void Game::Stop() {
+void Game::stop() {
 	screens.close();
 }

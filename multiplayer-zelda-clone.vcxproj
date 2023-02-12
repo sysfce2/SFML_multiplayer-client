@@ -144,6 +144,7 @@
     <ClCompile Include="PlayScreen.cpp" />
     <ClCompile Include="ScreenStack.cpp" />
     <ClCompile Include="TitleScreen.cpp" />
+    <ClCompile Include="UIRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Components.hpp" />
@@ -154,6 +155,8 @@
     <ClInclude Include="ScreenStack.hpp" />
     <ClInclude Include="ResourceHolder.hpp" />
     <ClInclude Include="TitleScreen.hpp" />
+    <ClInclude Include="IWidget.hpp" />
+    <ClInclude Include="UIRenderer.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
