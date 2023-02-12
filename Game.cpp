@@ -2,12 +2,14 @@
 #include "PlayScreen.hpp"
 #include "TitleScreen.hpp"
 
-#include <iostream>
+#include "NetworkWidget.hpp"
 
 void Game::start() {
 	screens.registerScreen<PlayScreen>(Screen::Type::PLAY);
 	screens.registerScreen<TitleScreen>(Screen::Type::TITLE);
 	screens.pushScreen(Screen::Type::TITLE);
+
+	gui.add<NetworkWidget>(socket);
 }
 
 void Game::update(float dt) {

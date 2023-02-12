@@ -8,7 +8,6 @@
 class Game {
 private:
 	sf::TcpSocket socket;
-	sf::TcpSocket::Status socketStatus;
 
 	ScreenStack screens;
 	Screen::Context context;
@@ -16,7 +15,7 @@ private:
 	UIRenderer gui;
 public:
 	Game()
-		: socketStatus(sf::Socket::Disconnected), screens(context) {}
+		: screens(context) {}
 
 	void start();
 	void update(float dt);

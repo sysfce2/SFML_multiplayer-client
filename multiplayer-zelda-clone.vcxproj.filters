@@ -39,6 +39,9 @@
     <ClCompile Include="UIRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NetworkWidget.cpp">
+      <Filter>Source Files\UIWidgets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.hpp">
@@ -70,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="UIRenderer.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkWidget.hpp">
+      <Filter>Header Files\UIWidgets</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

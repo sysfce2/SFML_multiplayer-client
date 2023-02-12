@@ -3,6 +3,9 @@
 #include <SFML/Graphics.hpp>
 #include "Game.hpp"
 
+// TODO:
+// draw gui on another thread (?)
+// check opengl shit
 
 int main() {
     // create window

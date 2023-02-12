@@ -1,3 +1,16 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(503,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
   Game.cpp
-  multiplayer-zelda-clone.vcxproj -> D:\Workspace\C++\multiplayer-server\build\multiplayer-zelda-clone.exe
+  main.cpp
+  NetworkWidget.cpp
+  PlayScreen.cpp
+  ScreenStack.cpp
+  TitleScreen.cpp
+  UIRenderer.cpp
+  Generating Code...
+ImGui-SFML.lib(imgui-SFML.obj) : warning LNK4099: PDB '' was not found with 'ImGui-SFML.lib(imgui-SFML.obj)' or at ''; linking object as if no debug info
+ImGui-SFML.lib(imgui.obj) : warning LNK4099: PDB '' was not found with 'ImGui-SFML.lib(imgui.obj)' or at ''; linking object as if no debug info
+ImGui-SFML.lib(imgui_widgets.obj) : warning LNK4099: PDB '' was not found with 'ImGui-SFML.lib(imgui_widgets.obj)' or at ''; linking object as if no debug info
+ImGui-SFML.lib(imgui_stdlib.obj) : warning LNK4099: PDB '' was not found with 'ImGui-SFML.lib(imgui_stdlib.obj)' or at ''; linking object as if no debug info
+ImGui-SFML.lib(imgui_draw.obj) : warning LNK4099: PDB '' was not found with 'ImGui-SFML.lib(imgui_draw.obj)' or at ''; linking object as if no debug info
+ImGui-SFML.lib(imgui_tables.obj) : warning LNK4099: PDB '' was not found with 'ImGui-SFML.lib(imgui_tables.obj)' or at ''; linking object as if no debug info
+  multiplayer-zelda-clone.vcxproj -> D:\Workspace\C++\multiplayer-zelda-clone\build\multiplayer-zelda-clone.exe
